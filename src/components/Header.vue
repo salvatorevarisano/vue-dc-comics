@@ -6,35 +6,10 @@
           </a>
             <nav>
                 <ul>
-                    <li>
-                        <a href="#">characters</a>
-                    </li>
-                    <li>
-                        <a href="#">comics</a>
-                    </li>
-                    <li>
-                        <a href="#">movies</a>
-                    </li>
-                    <li>
-                        <a href="#">tv</a>
-                    </li>
-                    <li>
-                        <a href="#">games</a>
-                    </li>
-                    <li>
-                        <a href="#">collectibles</a>
-                    </li>
-                    <li>
-                        <a href="#">videos</a>
-                    </li>
-                    <li>
-                        <a href="#">fans</a>
-                    </li>
-                    <li>
-                        <a href="#">news</a>
-                    </li>
-                    <li>
-                        <a href="#">shop</a>
+                    <li v-for="(link, index) in menuLinks"
+                        :key="index"
+                    >
+                        <a :href="link.url">{{link.label}}</a>
                     </li>
                 </ul>
             </nav>
@@ -45,19 +20,82 @@
 <script>
 export default {
     name: 'Header',
+    data() {
+        return {
+            menuLinks: [
+                {
+                    label: 'characters', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'comics', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'movies', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'tv', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'games', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'collectibles', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'videos', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'fans', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'news', 
+                    url: '#',
+                    active: false,
+                },
+                {
+                    label: 'shop', 
+                    url: '#',
+                    active: false,
+                },
+                
+
+            ]
+        }
+    },
 }
+
 </script>
 
 <style lang="scss" scoped>
+    @import '../style/layout';
+    @import '../style/mixins';
+
+    
     header {
         font-weight: 600;
         text-transform: uppercase;
     }
     .container {
-        display: flex;
         height: 120px;
+        @include flex-row-center('vertical');
         justify-content: space-between;
-        align-items: center;
+
         .brand {
             height: 80px;
         }

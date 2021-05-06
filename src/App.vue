@@ -1,45 +1,26 @@
 <template>
   <div id="app">
     <Header />
+    <Footer />
+
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'App',
   components: {
     Header,
+    Footer,
 
-  }
+  },
+
 }
 </script>
 
 <style lang="scss">
-  // GENERAL
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Source Sans Pro', sans-serif;
-  }
-
-  li {
-    list-style: none;
-    a {
-      text-decoration: none;
-      color: currentColor;
-    }
-  }
-
-
-  // UTILITIES
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  @import '@/style/general.scss';
 </style>
