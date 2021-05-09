@@ -1,26 +1,29 @@
 <template>
     <footer>
         <div class="container">
-                <div v-for="(menu, index ) in footerLists" :key="index" class="footer-menu">
-                    <h3>{{menu.title}}</h3>
-                    <ul>
-                        <li v-for="(link, index) in menu.links" 
-                            :key="index">
-                                {{link.label}}
-                        </li>
-                    </ul>
-                </div>
+            <div v-for="(menu, index ) in footerLists" :key="index" class="footer-menu">
+                <h3>{{menu.title}}</h3>
+                <ul>
+                    <li v-for="(link, index) in menu.links" 
+                        :key="index">
+                            {{link.label}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <BottomFooter/>
+
         
-        </div>
-        <div class="bottom-footer">
-            bottom
-        </div>
     </footer>
 </template>
 
 <script>
+import BottomFooter from '@/components/BottomFooter'
 export default {
     name: 'Footer',
+    components: {
+        BottomFooter,
+    },
     data() {
         return {
             footerLists: [
@@ -76,46 +79,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import '../style/layout';
-    @import '../style/mixins';
+     @import '../style/mixins';
+     @import '../style/vars';
+
+
 
     footer {
-        // padding: 40px 0;
         height: 480px;
         background-image: url(../assets/img/footer-bg.jpg);
-    }
+        & > .container {
+            display: flex;
+            height: 370px;
+            padding-top: 2.5rem;
+            flex-direction: column;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            background-image: url(../assets/img/dc-logo-bg.png);
+            background-repeat: no-repeat;
+            background-position-x: 100%;
+            background-position-y: center;
+            background-size: 41%;
+            .footer-menu {
+                width: 150px;
+                color: rgb(97, 97, 97);
 
-    .container {
-        display: flex;
-        height: 370px;
-        padding-top: 2.5rem;
-        flex-direction: column;
-        align-content: flex-start;
-        flex-wrap: wrap;
-        background-image: url(../assets/img/dc-logo-bg.png);
-        background-repeat: no-repeat;
-        background-position-x: 100%;
-        background-position-y: center;
-        background-size: 41%;
-        .footer-menu {
-            width: 150px;
-            color: rgb(97, 97, 97);
+                h3 {
+                    color: #fff;
+                    font-weight: 600;
+                }
+                ul {
+                    margin: 1.5rem 0 ;
 
-            h3 {
-                color: #fff;
-                font-weight: 600;
-            }
-            ul {
-                margin: 1.5rem 0 ;
-
+                }
             }
         }
     }
-
-    .bottom-footer {
-        height: 110px;
-        background: #303030;
-    }
-
 
 </style>

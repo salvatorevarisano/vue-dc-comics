@@ -1,5 +1,25 @@
-  // layout
+@import './vars.scss';
+
+ // layout
   .container {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .col-2 {
+    width: calc((100% / 12) * 2);
+    padding: 14px;
+  }
+
+
+  .cta {
+    display: inline-block;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background-color: $brand-colors;
+    border: 2px solid $brand-colors;
   }
